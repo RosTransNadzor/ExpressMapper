@@ -9,3 +9,15 @@ F:\Projects\ExpressMapper\ExpressMapperCore\obj\Debug\net9.0\ExpressMapperCore.d
 F:\Projects\ExpressMapper\ExpressMapperCore\obj\Debug\net9.0\refint\ExpressMapperCore.dll
 F:\Projects\ExpressMapper\ExpressMapperCore\obj\Debug\net9.0\ExpressMapperCore.pdb
 F:\Projects\ExpressMapper\ExpressMapperCore\obj\Debug\net9.0\ref\ExpressMapperCore.dll
+F:\Projects\ExpressMapper\src\ExpressMapper\ExpressMapperCore\bin\Debug\net9.0\ExpressMapperCore.deps.json
+F:\Projects\ExpressMapper\src\ExpressMapper\ExpressMapperCore\bin\Debug\net9.0\ExpressMapperCore.dll
+F:\Projects\ExpressMapper\src\ExpressMapper\ExpressMapperCore\bin\Debug\net9.0\ExpressMapperCore.pdb
+F:\Projects\ExpressMapper\src\ExpressMapper\ExpressMapperCore\obj\Debug\net9.0\ExpressMapperCore.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projects\ExpressMapper\src\ExpressMapper\ExpressMapperCore\obj\Debug\net9.0\ExpressMapperCore.AssemblyInfoInputs.cache
+F:\Projects\ExpressMapper\src\ExpressMapper\ExpressMapperCore\obj\Debug\net9.0\ExpressMapperCore.AssemblyInfo.cs
+F:\Projects\ExpressMapper\src\ExpressMapper\ExpressMapperCore\obj\Debug\net9.0\ExpressMapperCore.csproj.CoreCompileInputs.cache
+F:\Projects\ExpressMapper\src\ExpressMapper\ExpressMapperCore\obj\Debug\net9.0\ExpressMapperCore.sourcelink.json
+F:\Projects\ExpressMapper\src\ExpressMapper\ExpressMapperCore\obj\Debug\net9.0\ExpressMapperCore.dll
+F:\Projects\ExpressMapper\src\ExpressMapper\ExpressMapperCore\obj\Debug\net9.0\refint\ExpressMapperCore.dll
+F:\Projects\ExpressMapper\src\ExpressMapper\ExpressMapperCore\obj\Debug\net9.0\ExpressMapperCore.pdb
+F:\Projects\ExpressMapper\src\ExpressMapper\ExpressMapperCore\obj\Debug\net9.0\ref\ExpressMapperCore.dll

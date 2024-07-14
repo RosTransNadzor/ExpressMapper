@@ -2,81 +2,68 @@
 using ExpressMapperCore.Mapper;
 
 namespace ExpressMapper;
+file class MappingConfig : MapperConfig<User, UserDto>
+{
+    public override void Configure(IMappingConfigurer<User, UserDto> configurer)
+    {
+        configurer
+            .IgnoreDest(dto => dto.IsActive)
+            .IgnoreSource(us => us.Password)
+            .Map(dto => dto.Email, "some@gmail.com")
+            .Map(dto => dto.GlobalID, us => us.ID)
+            .WithConstructor<DateTime>()
+            //добавление обратоного маппера (работает только для методов Map и Ignore
+            .TwoWaysBuilding();
+    }
+}
+// возможность сразу в одном файле конфигурировать несколько мапперов
+// file class Composite : CompositeConfig
+// {
+//     public override void Configure()
+//     {
+//         // NewConfiguration<User,UserDto>()
+//         //     .IgnoreDest(dto => dto.IsActive)
+//         //     .IgnoreSource(us => us.Password)
+//         //     .Map(dto => dto.Email, "some@gmail.com")
+//         //     .Map(dto => dto.GlobalID, us => us.ID)
+//         //     .WithConstructor<DateTime>()
+//         //     .TwoWaysBuilding();
+//         
+//         
+//         //NewConfiguration<SomeSourceType,SomeDestType>()
+//         //     .Map(...)
+//     }
+// }
 public static class  Program
 {
-    #region Users
-
-    public class UserDto
-    {
-        public required int Age { get; init; }
-        public required string Name { get; init; }
-        public required string Description { get; init; }
-        public required Guid Id { get; init; }
-        public override string ToString()
-        {
-            return $"Info: {Name} {Description} {Id}";
-        }
-    }
-    public class User
-    {
-        public string Name{ get; init; }
-        public string Description { get; init; }
-        
-        public required int Age { get; init; }
-        public Guid PhoneId { get; set; }
-
-        public User(string name,string description)
-        {
-            Name = name;
-            Description = description;
-        }
-        
-        public string Address { get; init; }
-        
-        public override string ToString()
-        {
-            return $"Info: Name {Name} Description {Description} Adress {Address} PhoneId {PhoneId} Age {Age}";
-        }
-    }
-
-    public class UserDtoConfig : MapperConfigBase<UserDto,User>
-    {
-        public override void Configure(IMappingConfigurer<UserDto, User> configurer)
-        {
-            configurer
-                .Map(us => us.PhoneId,dto => dto.Id)
-                .IgnoreSource(dto => dto.Name)
-                .WithConstructor<string, string>()
-                .TwoWaysBuilding();
-        }
-    }
-    public class FullConfigurere : CompositeConfig
-    {
-        public override void Configure()
-        {
-            NewConfiguration<User, UserDto>()
-                .Map(dto => dto.Id, Guid.NewGuid())
-                .Map(dto => dto.Name, "Lox")
-                .IgnoreSource(s => s.Description);
-        }
-    }
-
-    #endregion
     static void Main(string[] args)
     {
-        //ConfigManager.ApplyConfig<UserDtoConfig>();
-        ConfigManager.ApplyConfig<FullConfigurere>();
+        //применение глобально конфигурации
+        ConfigManager.ApplyConfig<MappingConfig>();
+
         var mapper = Mapper.CreateMapper();
-        User dto = new User("me","das")
+        var user = new User
         {
-            Age = 45,
-            Description = "Some desc",
-            PhoneId = Guid.NewGuid(),
-            Name = "Niki"
+            //автоматически найдут по имени
+            UserName = "auto name",
+            Description = "auto desc",
+            //игнорируется из конфига
+            Password = "ignore password",
+            IsActive = true,
+            //маппится в соответсвии с конфигом
+            ID = Guid.NewGuid(),
+            // будут переданы к конструктор
+            WasBorn = DateTime.Now,
+            //не замапится т.к у UserDto данное поле закрыто для записи
+            Age = 32,
+            //не замапится т.к у UserDto данное поле имеет другой тип
+            Gender = "male"
         };
-        
-        UserDto auto = mapper.Map<User,UserDto>(dto);
-        Console.WriteLine(auto);
+
+        var dto = mapper.Map<User, UserDto>(user);
+        Console.WriteLine(dto);
+        var mappedUser = mapper.Map<UserDto, User>(dto);
+        Console.WriteLine(mappedUser);
     }
     
 }

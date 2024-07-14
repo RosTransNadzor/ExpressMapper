@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Projects\\ExpressMapper\\ExpressMapper\\ExpressMapper.csproj",
+      "projectUniqueName": "F:\\Projects\\ExpressMapper\\src\\ExpressMapper\\ExpressMapper\\ExpressMapper.csproj",
       "projectName": "ExpressMapper",
-      "projectPath": "F:\\Projects\\ExpressMapper\\ExpressMapper\\ExpressMapper.csproj",
+      "projectPath": "F:\\Projects\\ExpressMapper\\src\\ExpressMapper\\ExpressMapper\\ExpressMapper.csproj",
       "packagesPath": "C:\\Users\\Марина\\.nuget\\packages\\",
-      "outputPath": "F:\\Projects\\ExpressMapper\\ExpressMapper\\obj\\",
+      "outputPath": "F:\\Projects\\ExpressMapper\\src\\ExpressMapper\\ExpressMapper\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "F:\\vs\\sdk\\NuGetPackages"
@@ -59,8 +59,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "F:\\Projects\\ExpressMapper\\ExpressMapperCore\\ExpressMapperCore.csproj": {
-              "projectPath": "F:\\Projects\\ExpressMapper\\ExpressMapperCore\\ExpressMapperCore.csproj"
+            "F:\\Projects\\ExpressMapper\\src\\ExpressMapper\\ExpressMapperCore\\ExpressMapperCore.csproj": {
+              "projectPath": "F:\\Projects\\ExpressMapper\\src\\ExpressMapper\\ExpressMapperCore\\ExpressMapperCore.csproj"
             }
           }
         }

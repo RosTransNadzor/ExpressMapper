@@ -5,6 +5,7 @@ public interface IMapCache<T>
     where T : IKeyKeeper
 {
     T GetOrAdd(MapKey key, Func<T> faultFunc);
+    void Clear();
 }
 
 public interface IMapStorage<T>
@@ -16,23 +17,23 @@ public interface IMapStorage<T>
 public class KeyKeeperCollection<T> : IMapCache<T>,IMapStorage<T>
     where T : IKeyKeeper
 {
-    private readonly ConcurrentDictionary<MapKey,T> _cache;
+    private readonly ConcurrentDictionary<MapKey,T> _storage;
 
     public KeyKeeperCollection()
     {
-        _cache = new ConcurrentDictionary<MapKey,T>();
+        _storage = new ConcurrentDictionary<MapKey,T>();
     }
 
     private void AddOrUpdate(T value)
     {
-        _cache.AddOrUpdate(value.Key,value,(_,_) => value);
+        _storage.AddOrUpdate(value.Key,value,(_,_) => value);
     }
     
     public T GetOrAdd
         (MapKey key, Func<T> faultFunc)
     {
-        if (_cache.ContainsKey(key))
-            return _cache[key];
+        if (_storage.ContainsKey(key))
+            return _storage[key];
 
         T value = faultFunc();
         AddOrUpdate(value);
@@ -41,13 +42,18 @@ public class KeyKeeperCollection<T> : IMapCache<T>,IMapStorage<T>
 
     public T? Get(MapKey key)
     {
-        if (!_cache.ContainsKey(key))
+        if (!_storage.ContainsKey(key))
             return default;
 
-        return _cache[key];
+        return _storage[key];
     }
     public void Add(T value)
     {
         AddOrUpdate(value);
+    }
+
+    public void Clear()
+    {
+        _storage.Clear();
     }
 }

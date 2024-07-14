@@ -13,7 +13,9 @@ public class Mapper : IMapper
         _manager = new LambdaManager
             (new KeyKeeperCollection<IMapLambda>(),new LambdaBuilder(new MapExpressionBuilder()));
     }
-    
+    private Mapper(){}
+
+    public static void ClearLambdas() => _manager.ClearLambdas();    
     public static IMapper CreateMapper()
     {
         return new Mapper();

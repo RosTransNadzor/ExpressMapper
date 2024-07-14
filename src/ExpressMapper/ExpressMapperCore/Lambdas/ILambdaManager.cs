@@ -6,6 +6,7 @@ namespace ExpressMapperCore.MapBuilder;
 public interface ILambdaManager
 {
     Func<TSource, TDest> GetLambda<TSource, TDest>();
+    void ClearLambdas();
 }
 public class LambdaManager : ILambdaManager
 {
@@ -19,6 +20,11 @@ public class LambdaManager : ILambdaManager
     public Func<TSource, TDest> GetLambda<TSource,TDest>()
     {
         return GetMapLambda<TSource, TDest>().Lambda;
+    }
+
+    public void ClearLambdas()
+    {
+        _cache.Clear();
     }
 
     private MapLambda<TSource, TDest> GetMapLambda<TSource, TDest>()

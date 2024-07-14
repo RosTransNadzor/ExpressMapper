@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Projects\\ExpressMapper\\ExpressMapperTest\\ExpressMapperTest.csproj": {}
+    "F:\\Projects\\ExpressMapper\\src\\ExpressMapper\\ExpressMapperTest\\ExpressMapperTest.csproj": {}
   },
   "projects": {
-    "F:\\Projects\\ExpressMapper\\ExpressMapperCore\\ExpressMapperCore.csproj": {
+    "F:\\Projects\\ExpressMapper\\src\\ExpressMapper\\ExpressMapperCore\\ExpressMapperCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Projects\\ExpressMapper\\ExpressMapperCore\\ExpressMapperCore.csproj",
+        "projectUniqueName": "F:\\Projects\\ExpressMapper\\src\\ExpressMapper\\ExpressMapperCore\\ExpressMapperCore.csproj",
         "projectName": "ExpressMapperCore",
-        "projectPath": "F:\\Projects\\ExpressMapper\\ExpressMapperCore\\ExpressMapperCore.csproj",
+        "projectPath": "F:\\Projects\\ExpressMapper\\src\\ExpressMapper\\ExpressMapperCore\\ExpressMapperCore.csproj",
         "packagesPath": "C:\\Users\\Марина\\.nuget\\packages\\",
-        "outputPath": "F:\\Projects\\ExpressMapper\\ExpressMapperCore\\obj\\",
+        "outputPath": "F:\\Projects\\ExpressMapper\\src\\ExpressMapper\\ExpressMapperCore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "F:\\vs\\sdk\\NuGetPackages"
@@ -69,14 +69,14 @@
         }
       }
     },
-    "F:\\Projects\\ExpressMapper\\ExpressMapperTest\\ExpressMapperTest.csproj": {
+    "F:\\Projects\\ExpressMapper\\src\\ExpressMapper\\ExpressMapperTest\\ExpressMapperTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Projects\\ExpressMapper\\ExpressMapperTest\\ExpressMapperTest.csproj",
+        "projectUniqueName": "F:\\Projects\\ExpressMapper\\src\\ExpressMapper\\ExpressMapperTest\\ExpressMapperTest.csproj",
         "projectName": "ExpressMapperTest",
-        "projectPath": "F:\\Projects\\ExpressMapper\\ExpressMapperTest\\ExpressMapperTest.csproj",
+        "projectPath": "F:\\Projects\\ExpressMapper\\src\\ExpressMapper\\ExpressMapperTest\\ExpressMapperTest.csproj",
         "packagesPath": "C:\\Users\\Марина\\.nuget\\packages\\",
-        "outputPath": "F:\\Projects\\ExpressMapper\\ExpressMapperTest\\obj\\",
+        "outputPath": "F:\\Projects\\ExpressMapper\\src\\ExpressMapper\\ExpressMapperTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "F:\\vs\\sdk\\NuGetPackages"
@@ -98,8 +98,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "F:\\Projects\\ExpressMapper\\ExpressMapperCore\\ExpressMapperCore.csproj": {
-                "projectPath": "F:\\Projects\\ExpressMapper\\ExpressMapperCore\\ExpressMapperCore.csproj"
+              "F:\\Projects\\ExpressMapper\\src\\ExpressMapper\\ExpressMapperCore\\ExpressMapperCore.csproj": {
+                "projectPath": "F:\\Projects\\ExpressMapper\\src\\ExpressMapper\\ExpressMapperCore\\ExpressMapperCore.csproj"
               }
             }
           }

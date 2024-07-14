@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "43a4pTapGjw=",
+  "dgSpecHash": "fHVzANK1qrw=",
   "success": true,
-  "projectFilePath": "F:\\Projects\\ExpressMapper\\ExpressMapperCore\\ExpressMapperCore.csproj",
+  "projectFilePath": "F:\\Projects\\ExpressMapper\\src\\ExpressMapper\\ExpressMapperCore\\ExpressMapperCore.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

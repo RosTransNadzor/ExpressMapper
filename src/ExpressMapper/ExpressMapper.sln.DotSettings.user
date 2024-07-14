@@ -3,5 +3,8 @@
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::5707096A-7F71-4247-BE50-13F49B454787::net9.0::ExpressMapperTest.MemberSearchTest&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::5707096A-7F71-4247-BE50-13F49B454787::net9.0::ExpressMapperTest.MemberForMappingTest.TestCorrectParameterType&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::5707096A-7F71-4247-BE50-13F49B454787::net9.0::ExpressMapperTest.IgnoreTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::5707096A-7F71-4247-BE50-13F49B454787::net9.0::ExpressMapperTest.MapByName&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::5707096A-7F71-4247-BE50-13F49B454787::net9.0::ExpressMapperTest.MappingTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
