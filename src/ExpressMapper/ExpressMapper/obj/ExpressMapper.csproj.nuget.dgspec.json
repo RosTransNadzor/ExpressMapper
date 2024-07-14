@@ -1,0 +1,142 @@
+{
+  "format": 1,
+  "restore": {
+    "F:\\Projects\\ExpressMapper\\ExpressMapper\\ExpressMapper.csproj": {}
+  },
+  "projects": {
+    "F:\\Projects\\ExpressMapper\\ExpressMapperCore\\ExpressMapperCore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Projects\\ExpressMapper\\ExpressMapperCore\\ExpressMapperCore.csproj",
+        "projectName": "ExpressMapperCore",
+        "projectPath": "F:\\Projects\\ExpressMapper\\ExpressMapperCore\\ExpressMapperCore.csproj",
+        "packagesPath": "C:\\Users\\Марина\\.nuget\\packages\\",
+        "outputPath": "F:\\Projects\\ExpressMapper\\ExpressMapperCore\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "F:\\vs\\sdk\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Марина\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.5.24307.3/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\Projects\\ExpressMapper\\ExpressMapper\\ExpressMapper.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Projects\\ExpressMapper\\ExpressMapper\\ExpressMapper.csproj",
+        "projectName": "ExpressMapper",
+        "projectPath": "F:\\Projects\\ExpressMapper\\ExpressMapper\\ExpressMapper.csproj",
+        "packagesPath": "C:\\Users\\Марина\\.nuget\\packages\\",
+        "outputPath": "F:\\Projects\\ExpressMapper\\ExpressMapper\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "F:\\vs\\sdk\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Марина\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "F:\\Projects\\ExpressMapper\\ExpressMapperCore\\ExpressMapperCore.csproj": {
+                "projectPath": "F:\\Projects\\ExpressMapper\\ExpressMapperCore\\ExpressMapperCore.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.5.24307.3/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressMapper", "ExpressMapper\ExpressMapper.csproj", "{5A269067-D111-4C20-8175-86339776EB8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressMapperCore", "ExpressMapperCore\ExpressMapperCore.csproj", "{8C144F0C-A617-41DE-AA45-43E025A2EE60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressMapperTest", "ExpressMapperTest\ExpressMapperTest.csproj", "{5707096A-7F71-4247-BE50-13F49B454787}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A269067-D111-4C20-8175-86339776EB8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A269067-D111-4C20-8175-86339776EB8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A269067-D111-4C20-8175-86339776EB8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A269067-D111-4C20-8175-86339776EB8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C144F0C-A617-41DE-AA45-43E025A2EE60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C144F0C-A617-41DE-AA45-43E025A2EE60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C144F0C-A617-41DE-AA45-43E025A2EE60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C144F0C-A617-41DE-AA45-43E025A2EE60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5707096A-7F71-4247-BE50-13F49B454787}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5707096A-7F71-4247-BE50-13F49B454787}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5707096A-7F71-4247-BE50-13F49B454787}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5707096A-7F71-4247-BE50-13F49B454787}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "ExpressMapper/1.0.0": {
+        "dependencies": {
+          "ExpressMapperCore": "1.0.0"
+        },
+        "runtime": {
+          "ExpressMapper.dll": {}
+        }
+      },
+      "ExpressMapperCore/1.0.0": {
+        "runtime": {
+          "ExpressMapperCore.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ExpressMapper/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ExpressMapperCore/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
