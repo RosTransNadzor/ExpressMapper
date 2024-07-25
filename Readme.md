@@ -1,170 +1,123 @@
 
-# ExpressMapper Usage Guide
+# ExpressMapper
 
-ExpressMapper is a lightweight, fast, and easy-to-use .NET object-to-object mapper. This guide provides an overview of its features and configuration options.
+ExpressMapper is a lightweight and easy-to-use object-to-object mapping library for .NET, designed to streamline the process of transforming data between various layers of your application. It offers customizable mapping configurations, property ignoring, constructor mapping, and composite configurations to handle complex scenarios with ease.
 
 ## Features
 
-- **Single Mapping Configuration** (`MapperConfigBase<TSource, TDest>`)
-- **Composite Configuration for Multiple Mappings** (`CompositeConfig`)
-- **Custom Mapping Logic** (`Map()`)
-- **Ignoring Fields** (`IgnoreSource`, `IgnoreDest`)
-- **Constructor Selection** (`WithConstructor`)
-- **Bidirectional Mapping** (`TwoWaysBuilding`)
+- **Customizable Mapping Configurations**: Define mappings between source and destination properties with fine-grained control.
+- **Ignore Specific Properties**: Choose to ignore properties on either the source or destination side during the mapping.
+- **Constructor Mapping**: Use specific constructors when instantiating destination objects, useful for complex objects.
+- **Composite Configurations**: Manage multiple mappings for different types within a single configuration class.
 
-## Configuration Examples
+## Installation
 
-### 1. Single Mapping Configuration
+Install ExpressMapper via NuGet:
 
-Define a mapping configuration between two types using `MapperConfigBase`.
+```sh
+Install-Package ExpressMapper
+```
+
+## Getting Started
+
+To use ExpressMapper, start by defining your source and destination classes, and then configure the mappings using the provided configuration classes.
+
+### Example Classes
 
 ```csharp
-public class EmployeeDto
+public class User
 {
-    public required int Id { get; init; }
-    public required string FullName { get; init; }
-    public required string Department { get; init; }
-    public override string ToString()
-    {
-        return $"Employee: {FullName} from {Department} with ID {Id}";
-    }
+    public string Name { get; set; }
+    public string Description { get; set; }
 }
 
-public class Employee
+public class UserDto
 {
-    public string Name { get; init; }
-    public string Dept { get; init; }
-    public required int EmployeeId { get; init; }
-
-    public Employee(string name)
-    {
-        Name = name;
-    }
-
-    public override string ToString()
-    {
-        return $"Name: {Name}, Department: {Dept}, ID: {EmployeeId}";
-    }
+    public string UserName { get; set; }
+    public string AdditionalInfo { get; set; }
 }
+```
 
-public class EmployeeDtoConfig : MapperConfigBase<EmployeeDto, Employee>
+### Customizable Mapping Configurations
+
+Define how properties are mapped between different classes:
+
+```csharp
+file class UserConfig : MapperConfig<User, UserDto>
 {
-    public override void Configure(IMappingConfigurer<EmployeeDto, Employee> configurer)
+    public override void Configure(IMappingConfigurer<User, UserDto> configurer)
     {
         configurer
-            .Map(emp => emp.EmployeeId, dto => dto.Id)
-            .IgnoreSource(dto => dto.Department)
-            .WithConstructor<string>()
-            .TwoWaysBuilding();
+            .Map(dto => dto.UserName, us => us.Name);
     }
 }
 ```
 
-### 2. Composite Configuration for Multiple Mappings
+### Ignoring Properties
 
-Configure multiple mappings within a single configuration using `CompositeConfig`.
+Exclude certain properties from the mapping process:
 
 ```csharp
-public class ProjectDto
+file class UserConfig : MapperConfig<User, UserDto>
 {
-    public required int ProjectId { get; init; }
-    public required string ProjectName { get; init; }
+    public override void Configure(IMappingConfigurer<User, UserDto> configurer)
+    {
+        configurer
+            .Map(dto => dto.UserName, us => us.Name)
+            .IgnoreDest(dto => dto.UserName)
+            .IgnoreSource(us => us.Description);
+    }
 }
+```
 
-public class Project
-{
-    public int Id { get; init; }
-    public string Name { get; init; }
-}
+### Constructor Mapping
 
-public class FullConfiguration : CompositeConfig
+Specify the use of constructors with specific parameters:
+
+```csharp
+configurer.WithConstructor<string, string>();
+```
+
+### Composite Configurations
+
+Combine multiple configurations into a single configuration class:
+
+```csharp
+file class GeneralConfig : CompositeConfig
 {
     public override void Configure()
     {
-        NewConfiguration<Employee, EmployeeDto>()
-            .Map(dto => dto.Id, Guid.NewGuid())
-            .Map(dto => dto.FullName, "John Doe")
-            .IgnoreSource(s => s.Name);
+        NewConfiguration<Address, AddressDto>()
+            .IgnoreDest(dto => dto.City);
 
-        NewConfiguration<Project, ProjectDto>()
-            .Map(dto => dto.ProjectId, p => p.Id)
-            .Map(dto => dto.ProjectName, p => p.Name);
+        NewConfiguration<Product, ProductDto>()
+            .Map(dto => dto.Id, product => product.ProductId);
     }
 }
 ```
 
-### 3. Custom Mapping Logic with Map()
-
-Specify custom mappings directly.
+### Example Usage
 
 ```csharp
-var mapper = Mapper.CreateMapper();
-
-Employee emp = new Employee("John")
-{
-    EmployeeId = 123,
-    Dept = "Engineering"
-};
-
-EmployeeDto empDto = mapper.Map<Employee, EmployeeDto>(emp);
-Console.WriteLine(empDto);
-```
-
-### 4. Ignoring Fields
-
-Ignore fields in the source or destination during mapping.
-
-```csharp
-configurer
-    .IgnoreSource(dto => dto.Department)
-    .IgnoreDest(emp => emp.Dept);
-```
-
-### 5. Constructor Selection
-
-Select a constructor and match parameters by name.
-
-```csharp
-configurer.WithConstructor<string>();
-```
-
-### 6. Bidirectional Mapping
-
-Enable two-way mapping between types.
-
-```csharp
-configurer.TwoWaysBuilding();
-```
-
-## Example Usage
-
-```csharp
-public class Program
+public static class Program
 {
     static void Main(string[] args)
     {
-        ConfigManager.ApplyConfig<FullConfiguration>();
-        var mapper = Mapper.CreateMapper();
-
-        Employee emp = new Employee("Jane")
+        var mapper = Mapper.Create<GeneralConfig, UserConfig>();
+        var user = new User
         {
-            EmployeeId = 456,
-            Dept = "HR"
+            Description = "desc"
         };
-
-        EmployeeDto empDto = mapper.Map<Employee, EmployeeDto>(emp);
-        Console.WriteLine(empDto);
-
-        Project proj = new Project
-        {
-            Id = 789,
-            Name = "Project X"
-        };
-
-        ProjectDto projDto = mapper.Map<Project, ProjectDto>(proj);
-        Console.WriteLine(projDto);
+        var dto = mapper.Map<User, UserDto>(user);
+        Console.WriteLine(dto);
     }
 }
 ```
 
-With these configurations, ExpressMapper allows for flexible and customizable object-to-object mappings, supporting various complex scenarios and requirements.
+This example demonstrates how to create a mapper with combined configurations and map a `User` object to a `UserDto`.
+
+## Conclusion
+
+ExpressMapper provides a flexible and powerful solution for object-to-object mapping in .NET applications. Customize your mappings to fit your specific needs, whether it's for simple DTOs or complex objects.
+
+For more information, please refer to the official documentation or check out the source code examples.
