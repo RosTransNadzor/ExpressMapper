@@ -201,3 +201,8 @@ F:\Projects\ExpressMapper\src\ExpressMapper\ExpressMapperTest\obj\Debug\net9.0\r
 F:\Projects\ExpressMapper\src\ExpressMapper\ExpressMapperTest\obj\Debug\net9.0\ExpressMapperTest.pdb
 F:\Projects\ExpressMapper\src\ExpressMapper\ExpressMapperTest\obj\Debug\net9.0\ExpressMapperTest.genruntimeconfig.cache
 F:\Projects\ExpressMapper\src\ExpressMapper\ExpressMapperTest\obj\Debug\net9.0\ref\ExpressMapperTest.dll
+F:\Projects\ExpressMapper\src\ExpressMapper\ExpressMapperTest\bin\Debug\net9.0\Castle.Core.dll
+F:\Projects\ExpressMapper\src\ExpressMapper\ExpressMapperTest\bin\Debug\net9.0\Moq.dll
+F:\Projects\ExpressMapper\src\ExpressMapper\ExpressMapperTest\bin\Debug\net9.0\System.Diagnostics.EventLog.dll
+F:\Projects\ExpressMapper\src\ExpressMapper\ExpressMapperTest\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.Messages.dll
+F:\Projects\ExpressMapper\src\ExpressMapper\ExpressMapperTest\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.dll

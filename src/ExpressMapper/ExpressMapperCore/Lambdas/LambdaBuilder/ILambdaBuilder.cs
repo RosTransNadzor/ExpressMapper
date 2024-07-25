@@ -1,11 +1,12 @@
-﻿using ExpressMapperCore.Expressions;
+﻿using ExpressMapperCore.Configuration;
+using ExpressMapperCore.Expressions;
 using ExpressMapperCore.MapBuilder.MapExpression;
 
 namespace ExpressMapperCore.Lambdas.LambdaBuilder;
 
 public interface ILambdaBuilder
 {
-    MapLambda<TSource,TDest> BuildLambda<TSource, TDest>();
+    MapLambda<TSource,TDest> BuildLambda<TSource, TDest>(IConfigManager configManager);
 }
 public class LambdaBuilder : ILambdaBuilder
 {
@@ -15,13 +16,13 @@ public class LambdaBuilder : ILambdaBuilder
     {
         _expressionBuilder = expressionBuilder;
     }
-    public MapLambda<TSource, TDest> BuildLambda<TSource, TDest>()
+    public MapLambda<TSource, TDest> BuildLambda<TSource, TDest>(IConfigManager configManager)
     {
-        return new MapLambda<TSource, TDest> { Lambda = BuildLambdaCore<TSource, TDest>() };
+        return new MapLambda<TSource, TDest> { Lambda = BuildLambdaCore<TSource, TDest>(configManager) };
     }
 
-    private Func<TSource,TDest> BuildLambdaCore<TSource, TDest>()
+    private Func<TSource,TDest> BuildLambdaCore<TSource, TDest>(IConfigManager configManager)
     {
-        return _expressionBuilder.FormExpression<TSource, TDest>().Compile();
+        return _expressionBuilder.FormExpression<TSource, TDest>(configManager).Compile();
     }
 }

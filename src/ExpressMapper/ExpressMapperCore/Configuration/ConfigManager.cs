@@ -1,32 +1,32 @@
-﻿namespace ExpressMapperCore.Configuration;
+﻿using System.Collections.Immutable;
 
-public static class ConfigManager
+namespace ExpressMapperCore.Configuration;
+public interface IConfigManager
 {
-    private static readonly IMapStorage<IConfigUnit> _configsStorage 
-        = new KeyKeeperCollection<IConfigUnit>();
+    IConfig<TSource, TDest>? GetConfig<TSource, TDest>();
+}
+public class ConfigManager : IConfigManager
+{
+    private readonly ImmutableDictionary<MapKey, IConfig> _configs;
+
+    private ConfigManager(ImmutableDictionary<MapKey, IConfig> configs)
+    {
+        _configs = configs;
+    }
+
+    public IConfig<TSource, TDest>? GetConfig<TSource, TDest>()
+    {
+        _configs.TryGetValue(MapKey.Form<TSource, TDest>(), out IConfig? config);
+        return config as IConfig<TSource, TDest>;
+    }
+
+    public static IConfigManager CreateManager(IEnumerable<IConfigProvider> providers)
+    {
+        var pairs = providers
+            .SelectMany(provider => provider.GetConfigUnits())
+            .Select(config => new KeyValuePair<MapKey, IConfig>(config.Key, config));
+
+        return new ConfigManager(ImmutableDictionary.CreateRange(pairs));
+    }
     
-    public static void ApplyConfig<T>()
-        where T : class, IConfigUnitSaver, new()
-    {
-        T config = new T();
-        config.AddUnitsToStorage(_configsStorage);
-    }
-
-    public static void ApplyConfig(IConfigUnitSaver configUnitSaver)
-    {
-        configUnitSaver.AddUnitsToStorage(_configsStorage);
-    }
-
-    public static void ApplyConfig(params IConfigUnitSaver[] configs)
-    {
-        foreach (var config in configs)
-        {
-            ApplyConfig(config);
-        }
-    }
-
-    public static IConfigUnit<TSource,TDest>? GetConfigUnit<TSource, TDest>()
-    {
-        return _configsStorage.Get(MapKey.Form<TSource, TDest>()) as IConfigUnit<TSource, TDest>;
-    }
 }

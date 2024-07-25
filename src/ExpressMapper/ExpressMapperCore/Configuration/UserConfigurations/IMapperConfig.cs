@@ -1,21 +1,18 @@
 ﻿namespace ExpressMapperCore.Configuration;
 
-public interface IMapperConfig<TSource,TDest> : IConfigUnitSaver
+public abstract class MapperConfig<TSource, TDest> : IConfigProvider
 {
-    void Configure(IMappingConfigurer<TSource,TDest> configurer);
-}
-
-public abstract class MapperConfig<TSource, TDest> : IMapperConfig<TSource, TDest>
-{
-    private readonly IConfigBuilder<TSource,TDest> _mappingConfigurer = 
-        new GenericConfigBuilder<TSource, TDest>();
+    private readonly IConfigurationBuilder<TSource, TDest> _buidler =
+        LibraryFactory.Instance.CreateConfigBuilder<TSource, TDest>();
     
     public abstract void Configure(IMappingConfigurer<TSource,TDest> configurer);
 
-    void IConfigUnitSaver.AddUnitsToStorage(IMapStorage<IConfigUnit> storage)
+    IEnumerable<IConfig> IConfigProvider.GetConfigUnits()
     {
-        Configure(_mappingConfigurer);
-        ConfigUnitHelper.AddUnitToStorage(storage, _mappingConfigurer.BuildConfig());
+        Configure(_buidler);
+        yield return _buidler.Config;
+        if (_buidler.ReverseConfig is not null)
+            yield return _buidler.ReverseConfig;
     }
 
 }

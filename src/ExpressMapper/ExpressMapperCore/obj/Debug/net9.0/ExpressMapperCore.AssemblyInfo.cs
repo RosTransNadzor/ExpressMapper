@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ExpressMapperCore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8a656658940f9503f6d481765d146faf9f6f8183")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1021aaf9b3f0be9c06d99321a37cc4982c46b7db")]
 [assembly: System.Reflection.AssemblyProductAttribute("ExpressMapperCore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ExpressMapperCore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

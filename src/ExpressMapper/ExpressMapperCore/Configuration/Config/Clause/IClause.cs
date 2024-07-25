@@ -2,7 +2,7 @@
 
 public interface IClause<TSource, TDest>
 {
-    public bool IsValidClause { get; }
+    bool IsValidClause { get; }
 }
 
 public interface IReverseAbleClause<TSource, TDest> : IClause<TSource,TDest>

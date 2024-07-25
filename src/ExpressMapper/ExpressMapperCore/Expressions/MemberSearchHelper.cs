@@ -46,6 +46,32 @@ public static class MemberSearchHelper
             }
         }
     }
+    public static IEnumerable<MappingMember> FindAllMembers<T>(bool isWriteable = false)
+    {
+        Type type = typeof(T);
+        foreach (var prop in type.GetProperties())
+        {
+            if (isWriteable && prop.CanWrite)
+            {
+                yield return MemberFromPropV2(prop);
+            }
+            else if(!isWriteable)
+            {
+                yield return MemberFromPropV2(prop);
+            }
+        }
+        foreach (var field in type.GetFields())
+        {
+            if (isWriteable && !field.IsInitOnly)
+            {
+                yield return MemberFromFieldV2(field);
+            }
+            else if(!isWriteable)
+            {
+                yield return MemberFromFieldV2(field);
+            }
+        }
+    }
     private static MemberForMapping? TryFindField
         (Type source, string memberName,Type memberType,bool isWriteable)
     {
@@ -81,6 +107,24 @@ public static class MemberSearchHelper
             MemberInfo = propertyInfo,
             MemberName = propertyInfo.Name,
             MemberType = propertyInfo.PropertyType
+        };
+    }
+    private static MappingMember MemberFromFieldV2(FieldInfo fieldInfo)
+    {
+        return new MappingMember
+        {
+            Info = fieldInfo,
+            Name = fieldInfo.Name,
+            Type = fieldInfo.FieldType
+        };
+    }
+    private static MappingMember MemberFromPropV2(PropertyInfo propertyInfo)
+    {
+        return new MappingMember
+        {
+            Info = propertyInfo,
+            Name = propertyInfo.Name,
+            Type = propertyInfo.PropertyType
         };
     }
 }

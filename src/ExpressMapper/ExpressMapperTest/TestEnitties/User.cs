@@ -2,13 +2,16 @@
 
 public class User
 {
-    public string Name { get; init; }
+    public int Age { get; init; }
+    public string Name { get; set; }
     public string Description { get; init; }
     public string AnotherDescription { get; init; }
 }
 
 public class UserDto
 {
-    public required string Name { get; init; }
-    public required string Description { get; init; }
+    public int Age { get; init; }
+    public string Name { get; }
+    public readonly string AnotherDescription;
+    public string Description { get; init; }
 }

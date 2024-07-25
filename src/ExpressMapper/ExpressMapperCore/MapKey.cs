@@ -7,6 +7,7 @@ public readonly record struct MapKey(Type SourceType, Type DestType)
     }
 }
 
+public interface IKeyKeeper<TSource, TDest> : IKeyKeeper;
 public interface IKeyKeeper
 {
     public MapKey Key { get; }

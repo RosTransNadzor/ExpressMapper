@@ -1,10 +1,4 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=18fc0b33_002D3221_002D42fb_002D8b51_002D1169603a2703/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="FormMemberTestProperty" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::5707096A-7F71-4247-BE50-13F49B454787::net9.0::ExpressMapperTest.MemberSearchTest&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::5707096A-7F71-4247-BE50-13F49B454787::net9.0::ExpressMapperTest.MemberForMappingTest.TestCorrectParameterType&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::5707096A-7F71-4247-BE50-13F49B454787::net9.0::ExpressMapperTest.IgnoreTest&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::5707096A-7F71-4247-BE50-13F49B454787::net9.0::ExpressMapperTest.MapByName&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::5707096A-7F71-4247-BE50-13F49B454787::net9.0::ExpressMapperTest.MappingTest&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
+  &lt;Project Location="F:\Projects\ExpressMapper\src\ExpressMapper\ExpressMapperTest" Presentation="&amp;lt;ExpressMapperTest&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

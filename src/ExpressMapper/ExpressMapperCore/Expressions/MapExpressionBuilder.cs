@@ -5,28 +5,27 @@ namespace ExpressMapperCore.Expressions;
 
 public interface IMapExpressionBuilder
 {
-    Expression<Func<TSource, TDest>> FormExpression<TSource,TDest>();
+    Expression<Func<TSource, TDest>> FormExpression<TSource, TDest>(IConfigManager configManager);
 }
 
 public class MapExpressionBuilder: IMapExpressionBuilder
 {
-    public Expression<Func<TSource, TDest>> FormExpression<TSource,TDest>()
+    private readonly IExpressionBuilder _expressionBuilder;
+
+    public MapExpressionBuilder(IExpressionBuilder expressionBuilder)
     {
-        var config = ConfigManager.GetConfigUnit<TSource, TDest>();
-        ParameterExpression parameter = FormParameter<TSource>();
-
-        var body = new DestinationCreator()
-            .CreateDestination(config,parameter)
-            .AsignMembersByClauses()
-            .AsignMemberByAuto()
-            .ToExpression();
-
-        return Expression.Lambda<Func<TSource, TDest>>(body, parameter);
+        _expressionBuilder = expressionBuilder;
     }
 
-    private ParameterExpression FormParameter<TSource>()
+    public Expression<Func<TSource, TDest>> FormExpression<TSource, TDest>(IConfigManager configManager)
     {
-        return Expression.Parameter(typeof(TSource), nameof(TSource).ToLower());
+        var config = configManager.GetConfig<TSource, TDest>();
+        var mappingTracker = LibraryFactory.Instance.CreateMappingTracker(config)
+            .RemoveIgnored()
+            .MapConstructorParams()
+            .AutoMapByName()
+            .MapByClauses();
+
+        return _expressionBuilder.BuildExpression<TSource, TDest>(mappingTracker.GetMappingRules());
     }
-    
 }
